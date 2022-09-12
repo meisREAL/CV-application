@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PersonalInfo from "./components/personalInfo";
 
 class App extends Component {
     constructor() {
@@ -30,7 +31,14 @@ class App extends Component {
         }
     }
     render() {
-        return <div>Hello world</div>;
+        return <div id="mainWindow">
+            <div id="inputFields">
+                <form>
+                    <PersonalInfo />
+                </form>
+            </div>
+            <div id="outputFields">your formed cv</div>
+        </div>;
     }
 }
 
