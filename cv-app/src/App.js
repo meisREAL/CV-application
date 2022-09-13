@@ -29,14 +29,6 @@ class App extends Component {
 
     onSubmitChange = (e) => {
         e.preventDefault();
-        // this.setState({
-        //     personalInfo: this.state.personalInfo.concat(this.state.name, this.state.surName,
-        //         this.state.email, this.state.phone),
-        //     name: '',
-        //     surName: '',
-        //     email: '',
-        //     phone: ''
-        // })
         this.setState({
             personalInfo: [
                 ...this.state.personalInfo,
