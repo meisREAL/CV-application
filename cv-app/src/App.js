@@ -6,30 +6,6 @@ class App extends Component {
         super();
 
         this.state = {
-            // personalInfo: {
-            //     name: '',
-            //     surName: '',
-            //     email: '',
-            //     phone: '',
-            // },
-            // education: {
-            //     schoolName: '',
-            //     subject: '',
-            //     degree: '',
-            //     start: '',
-            //     end: '',
-            // },
-            // workExperience: {
-            //     company: '',
-            //     position: '',
-            //     jobDescription: '',
-            //     start: '',
-            //     end: '',
-            // },
-            // information: [],
-            // educationList: [],
-            // workList: [],
-
             name: '',
             surName: '',
             email: '',
@@ -47,30 +23,36 @@ class App extends Component {
         const name = target.name;
 
         this.setState({
-            // personalInfo: {
-            //     // name: value,
-            //     // surName: value,
-            //     // email: value,
-            //     // phone: value,
-            // },
-            // personalInfo: {
-            //     [name]: value,
-            //     // [name]: value,
-            //     // [name]: value,
-            //     // [name]: value,
-            // }
             [name]: value
-
         });
     }
 
-    onSubmitChange = e => {
+    onSubmitChange = (e) => {
         e.preventDefault();
+        // this.setState({
+        //     personalInfo: this.state.personalInfo.concat(this.state.name, this.state.surName,
+        //         this.state.email, this.state.phone),
+        //     name: '',
+        //     surName: '',
+        //     email: '',
+        //     phone: ''
+        // })
         this.setState({
-            personalInfo: this.state.personalInfo.concat(this.state.name, this.state.surName,
-                this.state.email, this.state.phone)
+            personalInfo: [
+                ...this.state.personalInfo,
+                {
+                    name: this.state.name,
+                    surname: this.state.surName,
+                    email: this.state.email,
+                    phone: this.state.phone,
+                }
+            ],
+            name: '',
+            surName: '',
+            email: '',
+            phone: ''
         })
-        console.log(this.personalInfo)
+        console.log(this.state.personalInfo)
     }
 
     render() {

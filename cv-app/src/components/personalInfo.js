@@ -5,17 +5,13 @@ class PersonalInfo extends Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
     }
+
     handleChange(e) {
-        const target = e.target;
-        const value = target.value;
-        const name = target.name;
         this.props.handleChange(e)
-        // console.log(name, value)
     }
 
     render() {
         const { name, surName, email, phone } = this.props;
-
         return (
             <div className="inputs">
                 <div className="inputFields">
