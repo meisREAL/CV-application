@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PersonalInfo from "./components/personalInfo";
+import Education from "./components/Education";
 
 class App extends Component {
     constructor() {
@@ -55,6 +56,7 @@ class App extends Component {
                     <PersonalInfo name={name} surName={surName} email={email} phone={phone}
                         handleChange={this.handleInputChange}
                     />
+                    <Education />
                     <input type='submit' />
                 </form>
             </div>
