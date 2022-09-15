@@ -13,6 +13,11 @@ class App extends Component {
             phone: '',
             personalInfo: [],
 
+            school: '',
+            subject: '',
+            studyFrom: '',
+            studyTill: '',
+            education: [],
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.onSubmitChange = this.onSubmitChange.bind(this);
@@ -40,23 +45,37 @@ class App extends Component {
                     phone: this.state.phone,
                 }
             ],
+            education: [
+                ...this.state.education,
+                {
+                    school: this.state.school,
+                    subject: this.state.subject,
+                    studyFrom: this.state.studyFrom,
+                    studyTill: this.state.studyTill,
+                }
+            ],
             name: '',
             surName: '',
             email: '',
-            phone: ''
+            phone: '',
+            school: '',
+            subject: '',
+            studyFrom: '',
+            studyTill: '',
         })
-        console.log(this.state.personalInfo)
     }
 
     render() {
-        const { name, surName, email, phone } = this.state
+        const { name, surName, email, phone, school, subject, studyFrom,
+            studyTill } = this.state
         return <div id="mainWindow">
             <div id="inputFields">
                 <form onSubmit={this.onSubmitChange}>
                     <PersonalInfo name={name} surName={surName} email={email} phone={phone}
                         handleChange={this.handleInputChange}
                     />
-                    <Education />
+                    <Education school={school} subject={subject} studyFrom={studyFrom}
+                        studyTill={studyTill} handleChange={this.handleInputChange} />
                     <input type='submit' />
                 </form>
             </div>
