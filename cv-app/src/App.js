@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PersonalInfo from "./components/personalInfo";
 import Education from "./components/Education";
+import Experience from "./components/Experience";
+
 
 class App extends Component {
     constructor() {
@@ -18,6 +20,12 @@ class App extends Component {
             studyFrom: '',
             studyTill: '',
             education: [],
+
+            company: '',
+            position: '',
+            description: '',
+            years: '',
+            experience: [],
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.onSubmitChange = this.onSubmitChange.bind(this);
@@ -54,6 +62,15 @@ class App extends Component {
                     studyTill: this.state.studyTill,
                 }
             ],
+            experience: [
+                ...this.state.experience,
+                {
+                    company: this.state.company,
+                    position: this.state.position,
+                    description: this.state.description,
+                    years: this.state.years,
+                }
+            ],
             name: '',
             surName: '',
             email: '',
@@ -62,12 +79,16 @@ class App extends Component {
             subject: '',
             studyFrom: '',
             studyTill: '',
+            company: '',
+            position: '',
+            description: '',
+            years: '',
         })
     }
 
     render() {
         const { name, surName, email, phone, school, subject, studyFrom,
-            studyTill } = this.state
+            studyTill, company, position, description, years } = this.state
         return <div id="mainWindow">
             <div id="inputFields">
                 <form onSubmit={this.onSubmitChange}>
@@ -77,6 +98,8 @@ class App extends Component {
                     <Education school={school} subject={subject} studyFrom={studyFrom}
                         studyTill={studyTill} handleChange={this.handleInputChange} />
                     <input type='submit' />
+                    <Experience company={company} position={position} description={description}
+                        years={years} handleChange={this.handleInputChange} />
                 </form>
             </div>
             <div id="outputFields">your formed cv</div>
